@@ -1,0 +1,52 @@
+<head>
+  <title>DemoApp 2017 !!?</title>
+</head>
+
+<template name="main">
+  <h1>Main page</h1>
+  {{>addperson}}
+  <hr>
+  {{>showpeople}}
+</template>
+
+<template name="about">
+  <h1>About this app</h1>
+  <br>
+  <p> This was made by Steven Chen and we will be testing out some feature here.</p>
+</template>
+
+<template name="infopage">
+  <h1> Info Page</h1>
+</template>
+
+<template name="layout">
+  <div class="container">
+  <h1>DemoApp 2017</h1>
+  {{> yield}}
+  <hr>
+  <a href="/">home</a>
+  <a href="/about">about</a>
+  <a href="/infopage">InfoPage</a>
+  </div>
+</template>
+
+<template name = "addperson">
+  Name: <input type="text" placeholder = "your name" id="name"> <br>
+  Birthyear <input type = "text" id = "birthyear"> <br>
+  <button id="addperson" class = "btn btn-primary">
+    Add to Collection
+  </button>
+</template>
+
+<template name="showpeople">
+  <ul>
+  {{#each p in peoplelist}}
+    <li>{{>personrow person=p}}</li>
+  {{/each}}
+  </ul>
+</template>
+
+<template name ="personrow">
+  {{person.name}}--{{person.birthyear}}
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+</template>
